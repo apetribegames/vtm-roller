@@ -1,0 +1,182 @@
+:root {
+  --bg: #121012;
+  --panel: #1d191c;
+  --border: #3a2f35;
+  --text: #e8e2e4;
+  --muted: #9a8f94;
+  --accent: #a3122a;
+  --success: #e0a33a;
+  --one: #d0465c;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.4 system-ui, sans-serif;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+h2 {
+  margin: 32px 0 8px;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.status {
+  padding: 8px 12px;
+  border: 1px solid var(--one);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 8px 10px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.check input {
+  width: auto;
+}
+
+button {
+  padding: 10px;
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+
+.log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.log li {
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+
+.who {
+  font-weight: 600;
+}
+
+.time {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.dice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+  font-family: ui-monospace, monospace;
+}
+
+.chain {
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.hit {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.one {
+  color: var(--one);
+  font-weight: 700;
+}
+
+.result {
+  font-weight: 700;
+}
+
+.result.success {
+  color: var(--success);
+}
+
+.result.failure {
+  color: var(--muted);
+}
+
+.result.botch {
+  color: var(--one);
+}

@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /rolls/{rollId} {
+      allow read: if true;
+      allow create: if validRoll(request.resource.data);
+      allow update, delete: if false;
+    }
+  }
+
+  function validRoll(d) {
+    return d.keys().hasOnly(['name', 'action', 'pool', 'difficulty', 'willpower', 'dice', 'successes', 'outcome', 'createdAt'])
+      && d.name is string && d.name.size() > 0 && d.name.size() <= 40
+      && d.action is string && d.action.size() <= 100
+      && d.pool is int && d.pool >= 1 && d.pool <= 30
+      && d.difficulty is int && d.difficulty >= 2 && d.difficulty <= 10
+      && d.willpower is bool
+      && d.dice is list && d.dice.size() == d.pool
+      && d.successes is int && d.successes >= -1
+      && d.outcome in ['success', 'failure', 'botch']
+      && d.createdAt == request.time;
+  }
+}
