@@ -31,6 +31,7 @@ h1 {
   margin: 0 0 16px;
   font-size: 1.6rem;
   color: var(--accent);
+  text-align: center;
 }
 
 h2 {
